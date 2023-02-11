@@ -1,0 +1,9 @@
+1. Enable WSL and Virtual Machine Platform in Programs and Features
+2. Install Windows Terminal, WSL and PowerShell 7 from Microsoft Store
+3. Install Oh My Posh
+	- https://www.youtube.com/watch?v=VT2L1SXFq9U&t=78s 
+4. Put settings.json in %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json (Windows Terminal configs)
+5. Put PowerShell folder in Documents
+6. Launch Windows Terminal on startup. Put winterm.bat  C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+7. Install Oh My Posh WSL (Optional)
+
