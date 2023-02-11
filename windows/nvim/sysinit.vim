@@ -42,10 +42,13 @@ set t_ut=
 let g:gruvbox_italic=1
 set background=dark
 colorscheme gruvbox
-" truecolor support. Make some tex visible
+" truecolor support. Make some text visible
 if (has("termguicolors"))
     set termguicolors
   endif
+
+"Enable arrows in statusbar
+let g:airline_powerline_fonts = 1
 
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-y> :vs <CR>
@@ -57,10 +60,6 @@ nnoremap L gt
 nnoremap <Esc> <C-\><C-n>
 
 set guifont="Hack NFM"
-
-" set numberwidth=3
-" set foldcolumn=4
-set foldmethod=manual
 
 lua << EOF
 require'lspconfig'.pyright.setup{}
