@@ -1,0 +1,7 @@
+---AtroNvimSetup---
+0. init.lua in %LOCALAPPDATA%/nvim/lua/user
+1. :LspInstall pyright html-lsp css-lsp
+2. :Masson
+    5
+    Install formater: autopep8, prettier
+3. :TSInstall html python json markdown lua css

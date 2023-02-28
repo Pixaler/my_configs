@@ -1,0 +1,31 @@
+#+TITLE: Astronvim Mappings Cheetsheat
+
+|------------------+----------------------------------|
+| General Mappings |                                  |
+|------------------+----------------------------------|
+| Leader           | Space                            |
+| Space + fn       | new file                         |
+| :w new.txt       | save current buffer with new.txt |
+| Ctrl + q         | force quir                       |
+| Space + c        | close buffer                     |
+| Space + /        | comment                          |
+| \                | horizonatal split                |
+|                  | vertical split                   |
+|------------------+----------------------------------|
+
+|-----------+------------------|
+| Neotree   |                  |
+|-----------+------------------|
+| Space + e | Toggle neotree   |
+| Space + o | Focus to neotree |
+|-----------+------------------|
+
+|--------------------------------+------------|
+| Session Manager Mappings       |            |
+|--------------------------------+------------|
+| Save Session                   | Space + Ss |
+| Last Session                   | Space + Sl |
+| Delete Session                 | Space + Sd |
+| Search Sessions                | Space + Sf |
+| Load Current Directory Session | Space + S. |
+|--------------------------------+------------|

@@ -1,0 +1,21 @@
+#+TITLE: Emacs Shortcuts
+
+* Emacs Basic
+#+LINK: https://www.shortcutfoo.com/app/dojos/emacs/cheatsheet
+
+|----------+----------------------------------|
+| Mottion  |                                  |
+|----------+----------------------------------|
+| ctrl+f   | Move forward a char              |
+| ctrl+b   | Move backward a char             |
+| ctrl+p   | Move to previous line            |
+| ctrl+n   | Move to next line                |
+|----------+----------------------------------|
+| Task     |                                  |
+|----------+----------------------------------|
+| ctrl-g   | clear command or break execution |
+| ctrl-x k | close buffer                     |
+|----------+----------------------------------|
+
+* Emacs Orgmode
+#+LINK: https://orgmode.org/worg/orgcard.html
