@@ -1,5 +1,0 @@
----Installation---
-1. Put .emacs in folder program
-2. Launch
-3. M-x package-install RET use-package RET
-4. Restart

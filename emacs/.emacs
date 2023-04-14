@@ -5,17 +5,15 @@
 
 (add-hook 'window-configuration-change-hook #'my-resize-margins)
 (my-resize-margins)
-;                 Set home directory
-(setq user-emacs-directory "C:\\PortableApps\\emacs\\.emacs.d")
-
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
 ;                 Disable anoing warning
 ; (setq warning-minimum-level :emergency)
 
 ;                 Basic customize and config
-(set-face-attribute 'default nil :family "CaskaydiaCove NFM" :height 133) 
+(set-face-attribute 'default nil :family "FiraCode Regular NFM" :height 140) 
 (setq inhibit-startup-message t)
 (defalias 'yes-or-no-p 'y-or-n-p)
-(scroll-bar-mode -1)
+(scroll-bar-mode -1)                       
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (global-display-line-numbers-mode)
@@ -40,7 +38,7 @@
 
 (package-initialize)
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 ;                 Powerline
 (use-package powerline
@@ -49,7 +47,10 @@
 
 ;                 OrgMode
 (use-package org
-  :ensure t)
+  :ensure t
+  :config
+  (setq org-clock-continuously non-nil))
+
 
 (use-package org-superstar  ;; Improved version of org-bullets
     :ensure t
@@ -65,29 +66,22 @@
   :config
   (evil-mode 1))
 
-;(use-package evil-org
-;  :ensure t
-;  :after org
-;  :hook (org-mode . (lambda () evil-org-mode))
-;  :config
-;  (require 'evil-org-agenda)
-;  (evil-org-agenda-set-keys))
+(use-package evil-org
+  :ensure t
+  :after (evil org)
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading))))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
-; (use-package evil-org
-;   :ensure t
-;   :after (evil org)
-;   :config
-;   (add-hook 'org-mode-hook 'evil-org-mode)
-;   (add-hook 'evil-org-mode-hook
-;       (lambda()
-;         (evil-org-set-key-theme '(navigation
-;                                  insert
-;                                  textobjects
-;                                  additional
-;                                  calendar)))))
 (setq org-log-done t)
-(setq org-agenda-files '("D:\\08_Notes\\Agenda"))
+(setq org-agenda-files '("/mnt/storage/08_Notes/Agenda"))
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+
 ;                 Moonfly theme
 (straight-use-package 
   '(doom-moonfly-theme :type git :host github :repo "stackmystack/doom-moonfly-theme"))
@@ -100,7 +94,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("99c8b8dda5cbf702891baf066627c55328d651b0c2d91108c8f62bcadd15581c" "21a16ad93c996b7c6b0ecbf9a8ab8b5a56a5c098533f42e2904c738afbc6f205" default))
- '(package-selected-packages '(org-superstar evil use-package)))
+ '(package-selected-packages '(org-superstar evil use-package))
+ '(warning-suppress-types '((use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
