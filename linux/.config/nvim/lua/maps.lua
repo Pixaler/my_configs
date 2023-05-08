@@ -18,7 +18,7 @@ keymap.set('n', 'dw', 'vb"_d')
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
 -- New tab
-keymap.set('n', 'te' , ':tabedit<Return>', { silent = true })
+keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
 -- Split window
 keymap.set('n', 'ss', ':split<Return><C-w>w', { silent = true })
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
@@ -35,5 +35,4 @@ keymap.set('n', '<Leader><up>', '<C-w>+')
 keymap.set('n', '<Leader><down>', '<C-w>-')
 
 -- Disable highlight search
-keymap.set('n', '<Leader>,', ':nohlsearch')
-
+keymap.set('n', '<Leader>,', ':nohlsearch<CR>')
