@@ -1,8 +1,0 @@
-1. Put in nvim\share\nvim
-2. Run :PlugInstall
-3. Install node.js with exe then type this
-	- npm install -g pyright 
-4. Install scoop
-	- curl https://raw.githubusercontent.com/ScoopInstaller/Install/master/install.ps1 -o install.sh1
-	- iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
-5. I hope it will work
