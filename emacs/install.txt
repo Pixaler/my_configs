@@ -1,7 +1,0 @@
----Installation---
-1. Put .emacs in folder program
-2. Launch
-3. M-x package-install RET use-package RET
-4. Restart
-
-IMPORT! Replace evil-orgmode files from this tar: https://melpa.org/packages/evil-org-20221001.2335.tar (link download files)
