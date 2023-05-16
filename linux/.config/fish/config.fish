@@ -2,13 +2,24 @@ set fish_greeting
 
 function ccf
   set FREQ (math $argv"*"1000000)
-  sudo cpupower --cpu all frequency-set --max $FREQ &> /dev/null
+  echo $FREQ | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq &> /dev/null
 end
 
+function backup
+  echo "Backup flatpaks app list"
+  flatpak list --columns=application --app > flatpaks.txt
+  echo "Backup .var folders"
+  tar --exclude={".var/app/*/.ld.so", ".var/app/*/cache"} -zcvf !LBACKUP"("(date +%d.%m.%Y)")".tar.gz .var flatpaks.txt .ssh  &> /dev/null
+  echo "Move backup archive"
+  mv !LBACKUP* /mnt/storage/06_Linux/!BACKUP &> /dev/null
+end
+
+# PATH
+set -U fish_user_paths ~/.bin $fish_user_paths
 
 # Aliases
-alias lcf="sudo cpupower --cpu all frequency-set --max 2.0GHz"
-alias scf="sudo cpupower --cpu all frequency-set --max 3.9GHz"
+alias lcf="echo 2000000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq &> /dev/null"
+alias scf="echo 3900000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq &> /dev/null"
 
 # alias nvim="gnome-terminal --window --maximize -- nvim"
 alias clean="sudo dnf autoremove -y && sudo dnf clean all"
