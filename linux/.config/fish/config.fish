@@ -9,7 +9,7 @@ function backup
   echo "Backup flatpaks app list"
   flatpak list --columns=application --app > flatpaks.txt
   echo "Backup .var folders"
-  tar --exclude={".var/app/*/.ld.so", ".var/app/*/cache"} -zcvf !LBACKUP"("(date +%d.%m.%Y)")".tar.gz .var flatpaks.txt .ssh  &> /dev/null
+  tar --exclude={".var/app/*/.ld.so", ".var/app/*/cache"} -zcvf !LBACKUP"("(date +%d.%m.%Y)")".tar.gz .var flatpaks.txt .ssh opt &> /dev/null
   echo "Move backup archive"
   mv !LBACKUP* /mnt/storage/06_Linux/!BACKUP &> /dev/null
 end
@@ -23,7 +23,8 @@ alias scf="echo 3900000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_
 
 # alias nvim="gnome-terminal --window --maximize -- nvim"
 alias clean="sudo dnf autoremove -y && sudo dnf clean all"
-alias uu="sudo dnf update -y && sudo dnf autoremove -y && flatpak update -y"
+# alias uu="sudo dnf update -y && flatpak update -y"
+alias uu="sudo apt update -y && sudo apt upgrade -y && flatpak update -y"
 
 alias ..="cd .."
 alias ...="cd ../.."
