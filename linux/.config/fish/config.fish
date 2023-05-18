@@ -21,10 +21,10 @@ set -U fish_user_paths ~/.bin $fish_user_paths
 alias lcf="echo 2000000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq &> /dev/null"
 alias scf="echo 3900000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq &> /dev/null"
 
-# alias nvim="gnome-terminal --window --maximize -- nvim"
-alias clean="sudo dnf autoremove -y && sudo dnf clean all"
+# alias clean="sudo dnf autoremove -y && sudo dnf clean all"
 # alias uu="sudo dnf update -y && flatpak update -y"
-alias uu="sudo apt update -y && sudo apt upgrade -y && flatpak update -y"
+alias uu="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo snap refresh && flatpak update -y"
+alias trim="sudo fstrim -av"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -35,7 +35,6 @@ alias la='exa -a'  # all files and dirs
 alias ll='exa -al'  # long format
 # alias lt='exa -aT --color=always --group-directories-first' # tree listing
 # alias l.='exa -a | egrep "^\."'
-
 
 # sashimi
 # Source: https://github.com/isacikgoz/sashimi
@@ -82,6 +81,7 @@ function fish_prompt
   end
 
   echo -n -s $initial_indicator $whitespace $cwd $git_info $whitespace $ahead $status_indicator $whitespace
+
 end
 
 function _git_ahead
