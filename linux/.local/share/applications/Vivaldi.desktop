@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Vivaldi
+Exec="/home/pixaler/opt/vivaldi/vivaldi" --user-data-dir=/home/pixaler/opt/vivaldi/profile %U
+Categories=Internet;Web Browser;
+Icon=/home/pixaler/opt/vivaldi/product_logo_256.png
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/ftp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/mailto;
