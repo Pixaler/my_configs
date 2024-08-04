@@ -17,3 +17,4 @@ scoop install zig
 git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 cp -r "D:\07_Projects\my_configs\linux\.config\nvim" "$env:LOCALAPPDATA"
 scoop install lazygit
+cp -r "D:\07_Projects\my_configs\linux\.ssh" "$env:LOCALAPPDATA"
