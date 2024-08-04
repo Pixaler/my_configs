@@ -1,4 +1,6 @@
 set fish_greeting
+set WINEESYNC 1
+set WINEFSYNC 1
 
 function ccf
   set FREQ (math $argv"*"1000000)
@@ -18,21 +20,44 @@ end
 set -U fish_user_paths ~/.bin $fish_user_paths
 
 # Aliases
-alias lcf="echo 2000000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq &> /dev/null"
+alias lcf="echo 2500000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq &> /dev/null"
 alias scf="echo 3900000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq &> /dev/null"
 
-# alias clean="sudo dnf autoremove -y && sudo dnf clean all"
+
+alias muse="minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid"
+alias remuse="killall minidland
+rm /home/pixaler/.cache/minidlna/files.db
+rm /home/pixaler/.config/minidlna/minidlna.log
+rm -rf /home/pixaler/.cache/minidlna/art_cache
+minidlnad -R -f /home/pixaler/.config/minidlna/minidlna.conf
+echo 'Database rebuilded' "
+
+alias uu="sudo pacman -Syyuu 
+flatpak update"
+alias clean="flatpak uninstall --unused --delete-data
+sudo pacman -Scc --noconfirm
+sudo paccache -r
+sudo paccache -rk1
+sudo paccache -ruk0
+sudo pacman -Rns (pacman -Qtdq)
+fc-cache -frv
+sudo truncate -s 0 /var/log/pacman.log
+rm -rf ~/.cache/
+sudo rm -rf /tmp/*"
+
+alias upgrub="sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg"
+alias upconf="source ~/.config/fish/config.fish"
+# alias uu="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo snap refresh && flatpak update -y"
 # alias uu="sudo dnf update -y && flatpak update -y"
-alias uu="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo snap refresh && flatpak update -y"
 alias trim="sudo fstrim -av"
 
 alias ..="cd .."
 alias ...="cd ../.."
 
 # Changing "ls" to "exa"
-alias ls='exa' # my preferred listing
-alias la='exa -a'  # all files and dirs
-alias ll='exa -al'  # long format
+alias ls='eza' # my preferred listing
+alias la='eza -a'  # all files and dirs
+alias ll='eza -al'  # long format
 # alias lt='exa -aT --color=always --group-directories-first' # tree listing
 # alias l.='exa -a | egrep "^\."'
 
