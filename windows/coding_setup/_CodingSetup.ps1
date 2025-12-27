@@ -9,9 +9,10 @@ scoop install windows-terminal
 mkdir "C:\Users\$env:UserName\scoop\apps\windows-terminal\current\settings"
 cp ".\settings.json" "C:\Users\$env:UserName\scoop\apps\windows-terminal\current\settings"
 cp -r ".\Powershell" "C:\!MYCOR"
-scoop install python310 main/nodejs-lts
+scoop install python312 nodejs-lts
 w10uninstall.bat
-$input = Read-Host -Prompt "Press any button to continue"
+$input = Read-Host -Prompt "Disable aliases for python.
+Press any button to continue"
 cp ".\winterm.bat" "C:\Users\$env:UserName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
 scoop install zig
 git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
